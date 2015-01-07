@@ -11,11 +11,7 @@ abstract class AbstractLogLine implements LogLine
      */
     public function __construct($logLineAsNumericalArray)
     {
-        $logLineArrayKeys = $this->getFieldNames();
-
-        foreach ($logLineAsNumericalArray as $logLineField) {
-            $this->logLineAssocArray[array_shift($logLineArrayKeys)] = $logLineField;
-        }
+        $this->logLineAssocArray = array_combine($this->getFieldNames(), $logLineAsNumericalArray);
     }
 
     /**
