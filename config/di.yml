@@ -1,0 +1,28 @@
+services:
+
+    controller.parse:
+        class: \AwinHaproxyLogParser\Controller\Parse
+        arguments:
+            - "@twig-environment"
+            - "@field-documentation-retriever"
+            - "@log-line-factory"
+
+    controller.index:
+        class: \AwinHaproxyLogParser\Controller\Index
+        arguments: ["@twig-environment"]
+
+    controller.static-assets:
+        class: \AwinHaproxyLogParser\Controller\StaticAssets
+
+    field-documentation-retriever:
+        class: \AwinHaproxyLogParser\Domain\FieldDocumentation\FieldDocumentationRetrieverCacheDecorator
+        arguments: ["@web-field-documentation-retriever"]
+
+    web-field-documentation-retriever:
+        class: \AwinHaproxyLogParser\Domain\FieldDocumentation\WebFieldDocumentationRetriever
+
+    log-line-factory:
+        class: \AwinHaproxyLogParser\Domain\HaproxyLogLine\LogLineFactory
+
+    twig-environment:
+        class: \Twig_Environment

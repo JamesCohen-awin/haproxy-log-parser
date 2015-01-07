@@ -1,0 +1,24 @@
+{
+    "name":    "zanox/haproxy-log-parser",
+    "version": "0.0.1",
+    "licence": "MIT",
+
+    "require": {
+        "silex/silex":                  "1.2.2",
+        "twig/twig":                    "1.16.3",
+        "symfony/dependency-injection": "2.6.1",
+        "roave/security-advisories":    "dev-master"
+    },
+
+    "require-dev": {
+        "behat/behat":     "3.*@stable",
+        "phpunit/phpunit": "4.*@stable",
+        "phpspec/phpspec": "2.*@stable"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "AwinHaproxyLogParser\\": "src/"
+        }
+    }
+}
