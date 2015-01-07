@@ -10,7 +10,7 @@ class FieldDocumentationRetrieverCacheDecorator implements FieldDocumentationRet
     private $cacheFilename = 'haproxy-doc-cache.json';
 
     /** @var int */
-    private $cacheValidity = 1; //86400;
+    private $cacheValidity = 86400;
 
     /**
      * @param FieldDocumentationRetriever $fieldDocumentationRetriever
@@ -40,7 +40,7 @@ class FieldDocumentationRetrieverCacheDecorator implements FieldDocumentationRet
      */
     private function cacheNeedsRefreshing()
     {
-        return !$this->cacheIsMissing() && !$this->cacheIsStale();
+        return $this->cacheIsMissing() || $this->cacheIsStale();
     }
 
     /**
